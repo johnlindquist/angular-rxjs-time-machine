@@ -7,7 +7,7 @@
     "dll": "webpack --config webpack.dll.js",
     "dev": "webpack-dev-server --config webpack.config.js",
     "postinstall": "npm run dll",
-    "start":"npm run dev"
+    "start": "npm run dev"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +16,8 @@
     "@types/core-js": "^0.9.34",
     "@types/node": "^6.0.46",
     "awesome-typescript-loader": "^2.2.4",
+    "css-loader": "^0.25.0",
+    "style-loader": "^0.13.1",
     "typescript": "^2.0.6",
     "webpack": "^2.1.0-beta.25",
     "webpack-dev-server": "^2.1.0-beta.10"
@@ -28,6 +30,7 @@
     "@angular/platform-browser-dynamic": "^2.1.2",
     "core-js": "^2.4.1",
     "rxjs": "^5.0.0-rc.1",
+    "tachyons": "^4.5.5",
     "zone.js": "^0.6.26"
   }
 }

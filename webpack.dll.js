@@ -9,7 +9,13 @@ const config = {
             '@angular/compiler',
             '@angular/core',
             '@angular/platform-browser',
-            '@angular/platform-browser-dynamic'
+            '@angular/platform-browser-dynamic',
+            'tachyons/css/tachyons.min.css'
+        ]
+    },
+    module: {
+        loaders: [
+            {test: /\.css$/, loader: "style-loader!css-loader"}
         ]
     },
     output: {

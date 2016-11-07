@@ -6,7 +6,7 @@ function root(__path = '.') {
 const webpack = require('webpack')
 const config = {
     resolve: {
-        extensions: ['.ts']
+        extensions: ['.ts', '.js', '.json']
     },
     entry: {
         'app': [

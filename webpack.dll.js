@@ -10,6 +10,9 @@ const config = {
             '@angular/core',
             '@angular/platform-browser',
             '@angular/platform-browser-dynamic',
+            '@ngrx/core',
+            '@ngrx/store',
+            '@ngrx/effects',
             'tachyons/css/tachyons.min.css'
         ]
     },

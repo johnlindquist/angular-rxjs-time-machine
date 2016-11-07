@@ -1,13 +1,9 @@
 import { NgModule } from '@angular/core'
 import { StoreModule } from '@ngrx/store'
-
-
-const reducer = (type, action) => {
-    return 'Hello world'
-}
+import { people, clock } from './reducers'
 
 @NgModule({
-    imports: [StoreModule.provideStore({app:reducer})]
+    imports: [StoreModule.provideStore({people, clock})]
 })
 export class AppStoreModule {
 }

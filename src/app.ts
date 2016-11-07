@@ -4,7 +4,7 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic'
 
 @Component({
     selector: 'app',
-    template:`<h1>Hmm, no cache</h1>`
+    template:`<h1>Hello Angular 2</h1>`
 })
 export class App{}
 

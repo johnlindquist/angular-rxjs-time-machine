@@ -1,10 +1,18 @@
+const path = require('path')
+function root(__path = '.') {
+    return path.join(__dirname, __path);
+}
+
 const webpack = require('webpack')
 const config = {
+    resolve: {
+        extensions: ['.ts']
+    },
     entry: {
         'app': [
             'core-js/es7/reflect',
             'zone.js/dist/zone',
-            './src/app.ts'
+            './src/main.ts'
         ]
     },
     output: {
@@ -19,7 +27,12 @@ const config = {
         })],
     module: {
         loaders: [
-            {test: /\.(ts)$/, loader: 'awesome-typescript-loader'}
+            {
+                test: /\.(ts)$/,
+                loader: 'awesome-typescript-loader',
+                exclude: [/\.(spec|e2e|d)\.ts$/],
+                include: [root('./src')]
+            }
         ]
     }
 }

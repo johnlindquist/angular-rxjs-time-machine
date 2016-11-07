@@ -1,6 +1,8 @@
 const webpack = require('webpack')
 const path = require('path')
 
+
+
 const config = {
     entry: {
         'vendors': [
@@ -12,15 +14,10 @@ const config = {
             '@angular/platform-browser-dynamic',
             '@ngrx/core',
             '@ngrx/store',
-            '@ngrx/effects',
-            'tachyons/css/tachyons.min.css'
+            '@ngrx/effects'
         ]
     },
-    module: {
-        loaders: [
-            {test: /\.css$/, loader: "style-loader!css-loader"}
-        ]
-    },
+
     output: {
         path: path.join(__dirname, 'build'),
         filename: './[name].bundle.js',

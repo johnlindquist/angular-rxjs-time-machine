@@ -1,7 +1,7 @@
-# Review of Angular 2, RxJS, and Reducers from ngrx/store
+# Using a Value from the Store in a Reducer
 
 ## Summary
-This lesson summarizes everything the course has covered and how Angular 2, RxJS, and ngrx/store work together to achive a reactive application.
+RxJS allows you to combine streams in various ways. This lesson shows you how to take a click stream and combine it with a store stream to use a value from the store inside a reducer.
 
 ## Plunker
-This code can be found on [Plunker](https://embed.plnkr.co/github/eggheadio-projects/egghead-wikipedia-demo/angular-2-review-of-angular-2-rxjs-and-reducers-from-ngrx-store?preview=plnkr.html&show=src%2Fapp%2Fapp.component.ts,preview)
+This code can be found on [Plunker](https://embed.plnkr.co/github/eggheadio-projects/egghead-wikipedia-demo/angular-2-using-a-value-from-the-store-in-a-reducer?preview=plnkr.html&show=src%2Fapp%2Fapp.component.ts,preview)

@@ -1,6 +1,5 @@
 export const HOUR = 'HOUR'
 export const SECOND = 'SECOND'
-export const ADVANCE = 'ADVANCE'
 
 
 
@@ -30,17 +29,6 @@ const defaultPeople = [
 ]
 export const people = (state = defaultPeople, {type, payload}) => {
     switch (type) {
-        case ADVANCE:
-            return state.map((person) => {
-                if (payload === person) {
-                    return {
-                        name: person.name,
-                        time: clock(person.time, {type: HOUR, payload: 5})
-                    }
-                }
-
-                return person
-            })
 
         default:
             return state

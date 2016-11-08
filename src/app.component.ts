@@ -6,10 +6,9 @@ import 'rxjs/add/observable/merge'
 import 'rxjs/add/operator/startWith'
 import 'rxjs/add/operator/scan'
 import 'rxjs/add/operator/mapTo'
-import 'rxjs/add/operator/withLatestFrom'
 import { Subject } from 'rxjs/Subject'
 import { Store } from '@ngrx/store'
-import { SECOND, HOUR, ADVANCE, RECALL } from './reducers'
+import { SECOND, HOUR, ADVANCE } from './reducers'
 
 @Component({
     selector: 'app',
@@ -21,15 +20,11 @@ import { SECOND, HOUR, ADVANCE, RECALL } from './reducers'
         <div (click)="person$.next(person)" *ngFor="let person of people | async">
             {{person.name}} is in {{person.time | date:'jms'}}        
         </div>
-        
-        <button (click)="recall$.next()">Recall</button>
         `
 })
 export class App {
     click$ = new Subject()
         .map((value: string) => ({type: HOUR, payload: parseInt(value)}))
-
-    recall$ = new Subject()
 
     person$ = new Subject()
         .map((value) => ({payload: value, type: ADVANCE}))
@@ -49,10 +44,7 @@ export class App {
         Observable.merge(
             this.click$,
             this.seconds$,
-            this.person$,
-            this.recall$
-                .withLatestFrom(this.time, (_, y) => y)
-                .map((time) => ({type: RECALL, payload: time}))
+            this.person$
         )
             .subscribe(store.dispatch.bind(store))
     }

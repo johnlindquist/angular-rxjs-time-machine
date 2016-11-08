@@ -16,10 +16,6 @@ import { SECOND, HOUR } from './reducers'
         <input #inputNum type="number" value="0">
         <button (click)="click$.next(inputNum.value)">Update</button>
         <clock [time]="time | async"></clock>
-        
-        <div *ngFor="let person of people | async">
-            {{person.name}} is in {{person.time}}        
-        </div>
         `
 })
 export class App {
@@ -31,11 +27,9 @@ export class App {
         .mapTo({type: SECOND, payload: 1})
 
     time
-    people
 
     constructor(store: Store<any>) {
         this.time = store.select('clock')
-        this.people = store.select('people')
 
 
         Observable.merge(

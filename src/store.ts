@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core'
 import { StoreModule } from '@ngrx/store'
-import { people, clock } from './reducers'
+import { clock } from './reducers'
 
 @NgModule({
-    imports: [StoreModule.provideStore({people, clock})]
+    imports: [StoreModule.provideStore({ clock})]
 })
 export class AppStoreModule {
 }

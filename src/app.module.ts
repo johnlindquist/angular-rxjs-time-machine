@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
-import { App } from './app.component'
-import { AppStoreModule } from './store'
-import { Clock } from './clock'
+import { App, GeoPosition, GeoAddress } from './app.component'
 
 
 @NgModule({
-    imports: [BrowserModule, AppStoreModule],
-    declarations: [App, Clock],
+    imports: [BrowserModule],
+    declarations: [App, GeoPosition, GeoAddress],
     bootstrap: [App]
 })
 export class AppModule {

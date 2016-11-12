@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
-import { App, GeoPosition, GeoAddress } from './app.component'
+import { App, declarations as appComponentDeclarations } from './app.component'
 
+const imports = [BrowserModule]
+const bootstrap = [App]
+const declarations = [
+    ...appComponentDeclarations
+]
 
 @NgModule({
-    imports: [BrowserModule],
-    declarations: [App, GeoPosition, GeoAddress],
-    bootstrap: [App]
+    imports,
+    declarations,
+    bootstrap
 })
-export class AppModule {
-
-}
+export class AppModule {}

@@ -1,38 +1,64 @@
-import { Component, Input, ContentChildren } from '@angular/core'
+import { Component, Input, ContentChildren, ViewChild, TemplateRef } from '@angular/core'
 
 @Component({
-    selector:'geo-address',
-    template:`<h2>Latitude</h2>{{lat}}`
+    selector: 'tab',
+    template: `
+<template>
+    <ng-content></ng-content>
+</template>
+`
 })
-export class GeoAddress{
-    @Input() lat
+class Tab {
+    @ViewChild(TemplateRef) template
+    @Input() title
 }
 
-@Component({
-    selector:'geo-position',
-    template:`<ng-content></ng-content>`
-})
-export class GeoPosition{
-    @ContentChildren(GeoAddress) geoAds
-    value = 'Can you see me now?'
 
-    ngAfterContentInit(){
-        const geoAds = this.geoAds.toArray()
-        geoAds.forEach(ad => ad.lat = Math.random())
+@Component({
+    selector: 'tab-container',
+    styles:[`
+.tab{cursor: pointer}
+.tab:hover{font-weight: bold}
+`],
+    template: `
+<span 
+    class="tab"
+    *ngFor="let tab of tabs" 
+    (click)="selectedTemplate = tab.template"
+>
+    {{tab.title}}
+</span>
+<div [ngTemplateOutlet]="selectedTemplate"></div>
+`
+})
+class TabContainer {
+    @ContentChildren(Tab) tabs
+    selectedTemplate
+
+    ngAfterContentInit() {
+        this.selectedTemplate = this.tabs.toArray()[0].template
     }
 }
 
-
 @Component({
     selector: 'app',
-    template: `b
-        
-        <hr>
-        <geo-position>
-            <geo-address></geo-address>                                                                
-            <geo-address></geo-address>                                                                
-            <geo-address></geo-address>                                                                
-        </geo-position>
+    template: `
+        <tab-container>
+           <tab title="One">Content for the <h1>first tab</h1></tab>
+           <tab title="Two">The second tab content</tab>
+           <tab title="Three">Three is the best!</tab>
+        </tab-container> 
         `
 })
-export class App {}
+class App {
+}
+
+const declarations = [
+    App,
+    TabContainer,
+    Tab
+]
+export {
+    App,
+    declarations
+}

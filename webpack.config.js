@@ -10,6 +10,7 @@ const config = {
     },
     entry: {
         'app': [
+            'tachyons/css/tachyons.min.css',
             'core-js/es7/reflect',
             'zone.js/dist/zone',
             './src/main.ts'
@@ -27,6 +28,9 @@ const config = {
         })],
     module: {
         loaders: [
+            {
+                test: /\.css$/,
+                loader: "style-loader!css-loader"},
             {
                 test: /\.(ts)$/,
                 loader: 'awesome-typescript-loader',
